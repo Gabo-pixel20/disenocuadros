@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Pack 5.0 - 100,000 Obras de Arte Mural</title>
+
+    <!-- PRECARGA RECURSOS CRITICOS -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=1000&auto=format&fit=crop" fetchpriority="high">
+
+    <!-- Meta Pixel Code (Placeholder - User should update) -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1406880024051799'); // Keeping ID from winner for consistency in template
+        fbq('track', 'PageView');
+    </script>
+
+    <!-- ESTILOS Y FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        grotesk: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        artIndigo: '#0a0e27',
+                        artCard: '#12173d',
+                        goldMain: '#d4af37',
+                        goldSoft: '#f3d674',
+                        amberAccent: '#ffbf00',
+                        softGray: '#a0aec0'
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0e27;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        .bg-art-gradient {
+            background-image: radial-gradient(circle at 10% 20%, rgba(22, 27, 61, 1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                linear-gradient(to bottom, #0a0e27, #0f1435);
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(to right, #d4af37, #f3d674, #ffbf00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .gold-shadow {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .pulse-gold {
+            animation: pulseGold 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseGold {
+            0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); transform: scale(1); }
+            50% { box-shadow: 0 0 35px rgba(212, 175, 55, 0.6); transform: scale(1.03); }
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+            opacity: 1;
+            padding-bottom: 1.25rem;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: #d4af37;
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+
+<body class="bg-art-gradient selection:bg-goldMain selection:text-artIndigo">
+
+    <!-- BANNER DE URGENCIA -->
+    <div class="w-full bg-gradient-to-r from-artIndigo via-goldMain to-artIndigo text-artIndigo text-center py-2.5 px-4 z-50 sticky top-0 flex items-center justify-center gap-2 text-xs md:text-sm font-black uppercase tracking-[0.2em] shadow-xl">
+        <span class="animate-bounce">👑</span> ÚLTIMA OPORTUNIDAD: EL PRECIO LANZAMIENTO DESAPARECE PRONTO <span class="animate-bounce">👑</span>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="relative pt-20 pb-28 px-4">
+        <div class="max-w-5xl mx-auto text-center z-10 relative">
+            
+            <div data-aos="fade-down" class="mb-6 inline-block">
+                <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold bg-artCard border border-goldMain/30 text-goldSoft shadow-lg uppercase tracking-widest">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-goldMain opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-goldMain"></span>
+                    </span>
+                    Exclusivo: Negocio de Arte Mural & Decoración
+                </span>
+            </div>
+
+            <h1 data-aos="zoom-out" data-aos-duration="1000" class="font-grotesk text-5xl md:text-7xl font-black leading-tight mb-8">
+                Domina el Mercado de los Cuadros con <br class="hidden md:block" />
+                <span class="text-gold-gradient">100,000 Obras de Arte Mural</span>
+            </h1>
+
+            <p data-aos="fade-up" data-aos-delay="200" class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-medium leading-relaxed">
+                La biblioteca definitiva para crear diseños que tus clientes <strong class="text-goldMain uppercase">AMARÁN</strong>. 
+                Sin gastar miles en diseñadores y <strong class="text-white underline decoration-goldMain underline-offset-8">sin perder meses buscando vectores mediocres.</strong>
+            </p>
+
+            <!-- Mockup / Hero Image -->
+            <div data-aos="fade-up" data-aos-delay="400" class="relative max-w-4xl mx-auto rounded-3xl overflow-hidden border-4 border-artCard gold-shadow bg-artCard group">
+                <div class="absolute inset-0 bg-gradient-to-t from-artIndigo/80 to-transparent z-10 pointer-events-none"></div>
+                <!-- Badge de Calidad -->
+                <div class="absolute top-6 right-6 z-20 px-4 py-2 bg-black/80 backdrop-blur-xl border border-goldMain/40 rounded-xl text-xs font-black text-goldSoft flex items-center gap-2 tracking-widest uppercase">
+                    💎 Calidad Galería 4K
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=1200&auto=format&fit=crop" 
+                     class="w-full h-auto object-cover transform transition-transform duration-[2s] group-hover:scale-105" 
+                     alt="Preview Arte Mural">
+                
+                <div class="absolute bottom-8 left-0 w-full z-20 text-center">
+                    <p class="text-xs uppercase tracking-[0.3em] font-bold text-gray-400 mb-4 opacity-70">Desliza para descubrir el tesoro</p>
+                    <div class="animate-bounce inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-goldMain"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- AGITACIÓN DEL PROBLEMA -->
+    <section class="py-24 px-4 bg-artIndigo relative">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-goldMain/20 to-transparent"></div>
+        <div class="max-w-5xl mx-auto">
+            <div data-aos="fade-up" class="text-center mb-16">
+                <h2 class="font-grotesk text-4xl md:text-5xl font-bold mb-6 italic">¿Cansado de vender lo mismo <br/> <span class="text-red-500 underline decoration-red-500/30">que toda tu competencia?</span></h2>
+                <p class="text-gray-400 text-lg">El mercado de la decoración es brutal. Si no destacas, mueres.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Problema 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-artCard/50 p-8 rounded-3xl border border-white/5 hover:border-goldMain/30 transition-all duration-500 group">
+                    <div class="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">⚠️</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Variedad Limitada</h3>
+                    <p class="text-gray-400 leading-relaxed">Pasas días buscando diseños originales en Pinterest o Google, solo para encontrar lo mismo que tienen otras 100 tiendas locales.</p>
+                </div>
+                <!-- Problema 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-artCard/50 p-8 rounded-3xl border border-white/5 hover:border-goldMain/30 transition-all duration-500 group">
+                    <div class="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">📉</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Pérdida de Calidad</h3>
+                    <p class="text-gray-400 leading-relaxed">Al ampliar una imagen para un cuadro de 60x90cm, se pixela y se ve borrosa. Pierdes clientes y reputación por vender productos de baja calidad.</p>
+                </div>
+                <!-- Problema 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-artCard/50 p-8 rounded-3xl border border-white/5 hover:border-goldMain/30 transition-all duration-500 group">
+                    <div class="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">💸</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Costos Asfixiantes</h3>
+                    <p class="text-gray-400 leading-relaxed">Contratar un diseñador para cada estilo te cuesta una fortuna. Tu margen de ganancia desaparece antes de que el cuadro llegue al cliente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUCIÓN + CARRUSEL -->
+    <section class="py-28 px-4 bg-art-gradient overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div data-aos="zoom-in" class="text-center mb-20">
+                <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold bg-goldMain/10 border border-goldMain/40 text-goldMain mb-6 uppercase tracking-widest tracking-[0.2em] shadow-lg">El Santo Grial del Arte Digital</span>
+                <h2 class="font-grotesk text-5xl md:text-6xl font-black mb-8 leading-tight">Accede al <br class="md:hidden" /> <span class="text-gold-gradient">Mega Pack 5.0</span></h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Más de 100.000 recursos de arte mural en <strong class="text-white">Ultra Alta Definición</strong>, organizados en más de 25 nichos y <strong class="text-goldMain underline decoration-2 underline-offset-4">LISTOS PARA IMPRIMIR Y FACTURAR.</strong></p>
+            </div>
+
+            <!-- Carrusel de Arte -->
+            <div data-aos="fade-up" class="relative max-w-4xl mx-auto rounded-[2.5rem] overflow-hidden border border-goldMain/20 bg-artCard shadow-[0_0_80px_rgba(212,175,55,0.1)] p-3">
+                <div id="art-carousel" class="relative aspect-[16/10] md:aspect-[21/9] rounded-[2rem] overflow-hidden bg-black">
+                    <!-- Imágenes -->
+                    <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1200&auto=format&fit=crop" class="c-slide absolute inset-0 w-full h-full object-cover transition-all duration-1000 opacity-100 z-10" alt="Arte Abstracto">
+                    <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=1200&auto=format&fit=crop" class="c-slide absolute inset-0 w-full h-full object-cover transition-all duration-1000 opacity-0 translate-x-full" alt="Arte Moderno">
+                    <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=1200&auto=format&fit=crop" class="c-slide absolute inset-0 w-full h-full object-cover transition-all duration-1000 opacity-0 translate-x-full" alt="Paisajes Minimalistas">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1200&auto=format&fit=crop" class="c-slide absolute inset-0 w-full h-full object-cover transition-all duration-1000 opacity-0 translate-x-full" alt="Arte Clásico">
+                    
+                    <!-- Controles -->
+                    <button onclick="moveCarousel(-1)" class="absolute left-6 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/40 backdrop-blur-md border border-goldMain/30 text-goldMain flex items-center justify-center hover:bg-goldMain hover:text-artIndigo transition-all group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-active:scale-90"><path d="m15 18-6-6 6-6"/></svg>
+                    </button>
+                    <button onclick="moveCarousel(1)" class="absolute right-6 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/40 backdrop-blur-md border border-goldMain/30 text-goldMain flex items-center justify-center hover:bg-goldMain hover:text-artIndigo transition-all group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-active:scale-90"><path d="m9 18 6-6-6-6"/></svg>
+                    </button>
+
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 px-8 py-3 bg-black/80 backdrop-blur-xl rounded-2xl border border-goldMain/30 text-sm font-black text-goldSoft shadow-2xl tracking-[0.2em] flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-goldMain animate-pulse"></span> PREVIEW DEL PACK
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-10 text-gray-400 italic">Cada diseño ha sido curado para garantizar una impresión nítida incluso en formatos gigantes.</p>
+        </div>
+    </section>
+
+    <!-- CARACTERÍSTICAS TÉCNICAS (CON ENFOQUE ARTÍSTICO) -->
+    <section class="py-24 px-4 bg-artIndigo relative overflow-hidden">
+        <div class="absolute -right-20 top-0 w-96 h-96 bg-goldMain/5 blur-[150px] rounded-full"></div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            
+            <div data-aos="fade-right" class="relative group">
+                <div class="absolute -inset-2 bg-gradient-to-r from-goldMain to-amberAccent rounded-3xl blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                <div class="relative bg-artCard rounded-3xl p-4 border border-white/5 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800&auto=format&fit=crop" class="rounded-2xl transition-transform duration-700 group-hover:scale-110" alt="Detalle de Impresión">
+                    <!-- Overlay de Resolución -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-goldSoft font-black text-4xl mb-2">300 DPI</p>
+                        <p class="text-white text-xs tracking-widest font-bold uppercase">Resolución Nativa</p>
+                    </div>
+                </div>
+            </div>
+
+            <div data-aos="fade-left">
+                <span class="inline-block px-4 py-1.5 rounded-full text-xs font-black bg-goldMain/10 text-goldMain border border-goldMain/20 mb-6 uppercase tracking-widest">Estándares de Galería</span>
+                <h2 class="font-grotesk text-4xl md:text-5xl font-black mb-8 leading-tight">Todo lo que necesitas <br/> <span class="text-gold-gradient">En un solo lugar.</span></h2>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4 p-6 rounded-3xl bg-artCard border border-white/5 hover:bg-artCard/80 transition-all">
+                        <div class="w-12 h-12 shrink-0 rounded-2xl bg-goldMain/10 flex items-center justify-center text-goldMain font-black text-xl">✨</div>
+                        <div>
+                            <p class="text-white font-black text-lg mb-1 leading-snug">Formatos de Alta Fidelidad</p>
+                            <p class="text-sm text-gray-400">Archivos en PNG transparente, PSD, AI y JPG HD. Máxima flexibilidad para tus montajes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-6 rounded-3xl bg-artCard border border-white/5 hover:bg-artCard/80 transition-all">
+                        <div class="w-12 h-12 shrink-0 rounded-2xl bg-goldMain/10 flex items-center justify-center text-goldMain font-black text-xl">🎨</div>
+                        <div>
+                            <p class="text-white font-black text-lg mb-1 leading-snug">Uso Comercial Ilimitado</p>
+                            <p class="text-sm text-gray-400">Sin letras pequeñas. Imprime y vende todos los productos que quieras para tus clientes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-6 rounded-3xl bg-artCard border border-white/5 hover:bg-artCard/80 transition-all">
+                        <div class="w-12 h-12 shrink-0 rounded-2xl bg-goldMain/10 flex items-center justify-center text-goldMain font-black text-xl">📂</div>
+                        <div>
+                            <p class="text-white font-black text-lg mb-1 leading-snug">Organización Profesional</p>
+                            <p class="text-sm text-gray-400">Todo categorizado por estilos: Abstracto, Nórdico, Minimalista, Animales, Paisajes y más.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRUEBA SOCIAL / TESTIMONIOS -->
+    <section class="py-24 px-4 bg-artIndigo border-y border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-20 text-center">
+                <div data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-5xl font-black text-white mb-2"><span class="count-up" data-to="100">0</span>k+</div>
+                    <div class="text-goldMain font-bold text-xs uppercase tracking-[0.2em]">Diseños HD</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl font-black text-white mb-2"><span class="count-up" data-to="2500">0</span>+</div>
+                    <div class="text-goldMain font-bold text-xs uppercase tracking-[0.2em]">Empresarios</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl font-black text-white mb-2">4.9/5</div>
+                    <div class="text-goldMain font-bold text-xs uppercase tracking-[0.2em]">Satisfacción</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl font-black text-white mb-2">300+</div>
+                    <div class="text-goldMain font-bold text-xs uppercase tracking-[0.2em]">DPI Promedio</div>
+                </div>
+            </div>
+
+            <h2 data-aos="fade-up" class="font-grotesk text-3xl font-bold text-center mb-12 flex items-center justify-center gap-3">
+                <span class="text-4xl">🔱</span> Lo que dicen de nuestra Colección Élite
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonio 1 -->
+                <div data-aos="fade-up" class="bg-artCard p-8 rounded-[2rem] border border-white/10 hover:border-goldMain/40 transition-colors relative">
+                    <div class="flex gap-1 mb-4 text-goldMain">★★★★★</div>
+                    <p class="text-gray-300 mb-6 leading-relaxed italic">"Increíble la calidad. Había comprado otros packs que se veían bien en pantalla pero al imprimir en 60x80 se veían horribles. Este pack es otro nivel."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-goldMain to-artIndigo flex items-center justify-center font-bold text-artIndigo">S.M</div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Sergio Méndez</p>
+                            <p class="text-xs text-softGray">🇲🇽 México | Deco Store</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 2 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-artCard p-8 rounded-[2rem] border border-white/10 hover:border-goldMain/40 transition-colors relative">
+                    <div class="flex gap-1 mb-4 text-goldMain">★★★★★</div>
+                    <p class="text-gray-300 mb-6 leading-relaxed italic">"Como diseñadora, esto me ahorra meses de trabajo. Lo uso para mis clientes corporativos y los resultados son impecables. Los diseños nórdicos son brutales."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-goldSoft to-goldMain flex items-center justify-center font-bold text-artIndigo">A.V</div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Adriana Vega</p>
+                            <p class="text-xs text-softGray">🇨🇴 Colombia | Interiorismo</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 3 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-artCard p-8 rounded-[2rem] border border-white/10 hover:border-goldMain/40 transition-colors relative">
+                    <div class="flex gap-1 mb-4 text-goldMain">★★★★★</div>
+                    <p class="text-gray-300 mb-6 leading-relaxed italic">"Simplemente espectacular. La organización facilita encontrar lo que el cliente pida. La inversión se recupera con el primer pedido de cuadros del pack."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amberAccent to-goldMain flex items-center justify-center font-bold text-artIndigo">J.C</div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Jorge C.</p>
+                            <p class="text-xs text-softGray">🇪🇸 España | Taller de Enmarcado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE STACK Y OFERTA FINAL -->
+    <section class="py-24 px-4 bg-art-gradient">
+        <div class="max-w-3xl mx-auto">
+            <div data-aos="zoom-in" class="bg-artCard rounded-[3rem] p-10 md:p-14 border-4 border-goldMain gold-shadow relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full bg-goldMain text-artIndigo text-center py-2 text-xs md:text-sm font-black tracking-[0.3em] uppercase animate-pulse">
+                    🏆 OFERTA POR TIEMPO LIMITADO 🏆
+                </div>
+
+                <div class="text-center mt-10">
+                    <h2 class="font-grotesk text-3xl md:text-5xl font-black mb-10 leading-tight">Tu Pasaporte al Éxito <br/> en Decoración Élite:</h2>
+
+                    <ul class="text-left space-y-5 mb-12 max-w-sm mx-auto">
+                        <li class="flex items-center text-gray-300"><span class="text-goldMain mr-4 text-2xl">⚡</span> +100,000 Obras de Arte Digital</li>
+                        <li class="flex items-center text-gray-300"><span class="text-goldMain mr-4 text-2xl">⚡</span> Alta Resolución (300 DPI)</li>
+                        <li class="flex items-center text-gray-300"><span class="text-goldMain mr-4 text-2xl">⚡</span> Licencia Comercial Ilimitada</li>
+                        <li class="flex items-center text-gray-300"><span class="text-goldMain mr-4 text-2xl">⚡</span> Acceso de por Vida via Google Drive</li>
+                        <li class="flex items-center text-gray-300"><span class="text-goldMain mr-4 text-2xl">⚡</span> Módulos VIP de Tendencias 2026</li>
+                    </ul>
+
+                    <div class="mb-10 p-6 bg-artIndigo/50 rounded-3xl border border-white/5 inline-block w-full">
+                        <p class="text-goldSoft text-xs font-black uppercase tracking-widest mb-4">Esta Oferta Expira En:</p>
+                        <div class="countdown-timer text-6xl md:text-8xl font-black text-gold-gradient tabular-nums mb-6">14:40</div>
+                        <p class="text-gray-500 text-sm line-through uppercase tracking-widest mb-2">Precio Regular: $67.00 USD</p>
+                        <div class="flex flex-col items-center">
+                            <p class="text-7xl md:text-9xl font-black text-white flex items-start">
+                                <span class="text-3xl md:text-5xl mt-2 mr-2 text-goldMain">$</span>4.95
+                            </p>
+                            <p class="text-goldMain font-black text-xl mt-4 tracking-widest">PAGO ÚNICO - SIN MENSUALIDADES</p>
+                        </div>
+                    </div>
+
+                    <a href="https://pay.hotmart.com/S104454776B?off=abs4xoxb&checkoutMode=10" class="block group">
+                        <button class="pulse-gold w-full py-6 md:py-8 rounded-2xl bg-gradient-to-r from-goldMain via-goldSoft to-goldMain text-artIndigo font-black text-xl md:text-3xl transition-all shadow-[0_15px_30px_rgba(212,175,55,0.3)] hover:shadow-[0_20px_40px_rgba(212,175,55,0.5)] transform hover:-translate-y-2 uppercase tracking-widest">
+                            ¡SÍ! QUIERO ACCESO INMEDIATO
+                        </button>
+                    </a>
+
+                    <div class="mt-8 flex flex-col items-center gap-3">
+                        <div class="flex items-center gap-3 text-goldSoft font-bold text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-green-400"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                            Transacción Encriptada & Segura
+                        </div>
+                        <img src="https://logodownload.org/wp-content/uploads/2014/10/visa-logo-1.png" class="h-4 opacity-50 grayscale invert" alt="Visa">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 px-4 bg-artIndigo border-t border-white/5">
+        <div class="max-w-3xl mx-auto">
+            <h2 data-aos="fade-up" class="font-grotesk text-4xl md:text-5xl font-black text-center mb-16">Preguntas de Futuros <span class="text-goldMain">Líderes.</span></h2>
+
+            <div data-aos="fade-up" class="space-y-6">
+                <!-- FAQ 1 -->
+                <div class="faq-item border border-white/5 bg-artCard rounded-2xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-7 text-left font-black text-white hover:text-goldMain transition-colors">
+                        ¿Cómo recibo las 100,000 obras?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="faq-icon transition-transform"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer px-7 text-gray-400 leading-relaxed">
+                        Inmediatamente después de tu pago, recibirás un correo automático con el acceso exclusivo a nuestro servidor VIP en Google Drive. No necesitas descargar los 150GB+ de una sola vez; puedes navegar, elegir el diseño que necesitas e imprimirlo hoy mismo.
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-item border border-white/5 bg-artCard rounded-2xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-7 text-left font-black text-white hover:text-goldMain transition-colors">
+                        ¿Qué pasa si quiero ampliar para un cuadro gigante?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="faq-icon transition-transform"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer px-7 text-gray-400 leading-relaxed">
+                        Los diseños están optimizados en resoluciones que van desde los 300 hasta los 600 DPI. Esto significa que puedes imprimir en lienzos grandes (ej. 1 metro o más) y la imagen mantendrá su nitidez y detalle profesional.
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-item border border-white/5 bg-artCard rounded-2xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-7 text-left font-black text-white hover:text-goldMain transition-colors">
+                        ¿Tengo acceso a las actualizaciones?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="faq-icon transition-transform"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer px-7 text-gray-400 leading-relaxed">
+                        Sí. El mundo del arte evoluciona. Por eso, al ser parte de la comunidad Mega Pack 5.0, recibirás acceso a todas las nuevas colecciones que subamos mensualmente sin tener que pagar ni un solo dólar extra.
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="faq-item border border-white/5 bg-artCard rounded-2xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-7 text-left font-black text-white hover:text-goldMain transition-colors">
+                        ¿Es un pago único realmente?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="faq-icon transition-transform"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer px-7 text-gray-400 leading-relaxed">
+                        Absolutamente. No hay mensualidades, suscripciones ni cargos ocultos. Pagas $4.95 hoy y el acceso es tuyo para siempre. Es una inversión de una sola vez para un activo de negocio de por vida.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-20 px-4 bg-black border-t-2 border-goldMain relative overflow-hidden text-center">
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-goldMain/5 blur-[150px] rounded-full"></div>
+        <div class="max-w-2xl mx-auto relative z-10">
+            <h2 class="text-4xl font-black mb-6">Tu imperio de arte comienza hoy.</h2>
+            <div class="countdown-timer text-7xl md:text-8xl font-black text-gold-gradient tabular-nums mb-10">14:40</div>
+            <a href="https://pay.hotmart.com/S104454776B?off=abs4xoxb&checkoutMode=10" class="inline-block w-full max-w-sm">
+                <button class="pulse-gold w-full py-5 rounded-2xl bg-goldMain hover:bg-goldSoft text-artIndigo font-black text-2xl transition-all uppercase tracking-widest">
+                    EMPEZAR POR $4.95
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 text-center text-[10px] md:text-xs text-gray-600 border-t border-white/5 pb-32 md:pb-12">
+        <p>© 2026 MegaPack Arte Mural (+100,000 Obras) — La colección de diseño más grande para emprendedores.</p>
+        <p class="mt-4 max-w-2xl mx-auto px-4 opacity-50 uppercase tracking-widest leading-loose">This site is not a part of the Facebook website or Facebook Inc. Additionally, This site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+    </footer>
+
+    <!-- REAL-TIME SALES NOTIFICATION -->
+    <div id="sales-notification" class="fixed bottom-6 left-6 z-50 transform translate-y-32 opacity-0 transition-all duration-700 ease-in-out pointer-events-none">
+        <div class="bg-artCard/95 backdrop-blur-2xl border border-goldMain/30 shadow-2xl rounded-[2rem] p-5 flex items-center gap-5 max-w-[340px] md:max-w-[400px]">
+            <div class="w-14 h-14 shrink-0 bg-goldMain/20 rounded-2xl flex items-center justify-center text-3xl shadow-inner">💎</div>
+            <div>
+                <p class="text-white text-sm md:text-base font-black leading-tight" id="notify-name">Alguien en <span class="text-goldMain">México</span></p>
+                <p class="text-gray-400 text-xs leading-snug mt-2">Acaba de adquirir su licencia comercial de <strong class="text-white">100,000 Diseños HD</strong>.</p>
+                <div class="text-gray-500 text-[10px] mt-3 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> Verificado hace <span id="notify-time">2</span> min
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGICA DEL CARRUSEL Y AUXILIARES -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script>
+        // AOS Init
+        window.addEventListener('load', () => {
+            AOS.init({ once: true, offset: 50, duration: 1000, easing: 'ease-out-back' });
+        });
+
+        // Carousel Logic
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.c-slide');
+        
+        function showSlide(index) {
+            slides.forEach((s, i) => {
+                s.style.opacity = i === index ? '1' : '0';
+                s.style.transform = i === index ? 'translateX(0)' : (i < index ? 'translateX(-100%)' : 'translateX(100%)');
+                s.style.zIndex = i === index ? '10' : '1';
+            });
+        }
+
+        function moveCarousel(dir) {
+            slideIndex = (slideIndex + dir + slides.length) % slides.length;
+            showSlide(slideIndex);
+        }
+
+        setInterval(() => moveCarousel(1), 4000);
+
+        // Countdown Timer
+        function startCountdown() {
+            const timerElements = document.querySelectorAll('.countdown-timer');
+            let totalSeconds = (14 * 60) + 40;
+            const updateTimer = () => {
+                const m = Math.floor(totalSeconds / 60);
+                const s = totalSeconds % 60;
+                timerElements.forEach(timer => timer.textContent = `${m}:${s < 10 ? '0' : ''}${s}`);
+                if (totalSeconds > 0) totalSeconds--;
+            };
+            setInterval(updateTimer, 1000);
+            updateTimer();
+        }
+
+        // Count Up Logic
+        function initCountUps() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.getAttribute('data-to'));
+                        let current = 0;
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
+                        
+                        const counter = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                el.textContent = target;
+                                clearInterval(counter);
+                            } else {
+                                el.textContent = Math.round(current);
+                            }
+                        }, 16);
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.count-up').forEach(el => observer.observe(el));
+        }
+
+        // FAQ Toggle
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        }
+
+        // Sales Notifications
+        function initNotifications() {
+            const countries = ["México", "Colombia", "España", "Chile", "Perú", "Argentina", "Ecuador", "Estados Unidos"];
+            const notification = document.getElementById('sales-notification');
+            const notifyName = document.getElementById('notify-name');
+            const notifyTime = document.getElementById('notify-time');
+
+            const showNotification = () => {
+                const country = countries[Math.floor(Math.random() * countries.length)];
+                const time = Math.floor(Math.random() * 10) + 1;
+                notifyName.innerHTML = `Alguien en <span class="text-goldMain">${country}</span>`;
+                notifyTime.textContent = time;
+                notification.classList.remove('translate-y-32', 'opacity-0');
+                notification.classList.add('translate-y-0', 'opacity-100');
+                setTimeout(() => {
+                    notification.classList.remove('translate-y-0', 'opacity-100');
+                    notification.classList.add('translate-y-32', 'opacity-0');
+                }, 6000);
+            };
+
+            setTimeout(function loop() {
+                showNotification();
+                setTimeout(loop, Math.random() * 15000 + 15000);
+            }, 8000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            startCountdown();
+            initCountUps();
+            initNotifications();
+        });
+    </script>
+</body>
+</html>
