@@ -357,7 +357,7 @@
             <!-- Ticker Muro de Arte -->
             <div class="marquee-container space-y-4">
                 <!-- Fila 1 (Izquierda) -->
-                <div class="marquee-row animate-marquee-left" style="--speed: 80s">
+                <div class="marquee-row animate-marquee-left" style="--speed: 40s">
                     <!-- Set 1 -->
                     <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=400" class="w-full h-full object-cover"></div>
                     <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?q=80&w=400" class="w-full h-full object-cover"></div>
@@ -379,7 +379,7 @@
                 </div>
 
                 <!-- Fila 2 (Derecha) -->
-                <div class="marquee-row animate-marquee-right" style="--speed: 100s">
+                <div class="marquee-row animate-marquee-right" style="--speed: 50s">
                     <!-- Set 1 -->
                     <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=400" class="w-full h-full object-cover"></div>
                     <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1544256718-348422ea2969?q=80&w=400" class="w-full h-full object-cover"></div>
@@ -401,7 +401,7 @@
                 </div>
 
                 <!-- Fila 3 (Izquierda) -->
-                <div class="marquee-row animate-marquee-left" style="--speed: 120s">
+                <div class="marquee-row animate-marquee-left" style="--speed: 60s">
                     <!-- Set 1 -->
                     <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1534188753412-3ee2ce95aaed?q=80&w=400" class="w-full h-full object-cover"></div>
                     <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1482160549825-59d1b23cb208?q=80&w=400" class="w-full h-full object-cover"></div>
@@ -424,6 +424,29 @@
             </div>
             
             <p class="text-center mt-12 text-gray-400 italic">Un muro infinito de posibilidades para cada habitación de tu casa.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: CALIDAD MÁXIMA (ZOOM) -->
+    <section class="py-24 px-4 bg-artIndigo relative overflow-hidden text-center border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <h2 data-aos="fade-up" class="font-grotesk text-4xl md:text-5xl font-black mb-8 leading-tight">
+                Calidad Máxima: <span class="text-gold-gradient">NUNCA se Pixela</span>
+            </h2>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
+                Nuestros diseños están en resolución nativa de galería. Puedes hacer zoom infinito y los detalles se mantendrán nítidos, listos para impresiones gigantes sin perder un solo detalle.
+            </p>
+            <div data-aos="zoom-in" class="relative rounded-[2.5rem] overflow-hidden border-4 border-goldMain gold-shadow bg-black max-w-3xl mx-auto group">
+                <video id="zoom-video" autoplay loop muted playsinline class="w-full h-auto transform transition-transform duration-[3s] group-hover:scale-105">
+                    <source src="https://d1yei2z3i6k35z.cloudfront.net/13578013/69dad002557136.40852067_Demostracion2.mp4" type="video/mp4">
+                </video>
+                <!-- Overlay de Zoom -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div class="w-20 h-20 rounded-full bg-goldMain/20 backdrop-blur-md border border-goldMain/50 flex items-center justify-center animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-goldMain"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M8 11h6"/><path d="M11 8v6"/></svg>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="py-24 px-4 bg-artIndigo overflow-hidden">
