@@ -114,6 +114,53 @@
             animation: shimmer 2s infinite;
         }
 
+        /* Ticker Wall of Art */
+        @keyframes marqueeLeft {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        @keyframes marqueeRight {
+            from { transform: translateX(-50%); }
+            to { transform: translateX(0); }
+        }
+        .marquee-container {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .marquee-row {
+            display: flex;
+            width: max-content;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .animate-marquee-left {
+            animation: marqueeLeft var(--speed, 60s) linear infinite;
+        }
+        .animate-marquee-right {
+            animation: marqueeRight var(--speed, 60s) linear infinite;
+        }
+        .marquee-row:hover {
+            animation-play-state: paused;
+        }
+        .art-card-ticker {
+            width: 200px;
+            height: 280px;
+            flex-shrink: 0;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .art-card-ticker:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            z-index: 10;
+        }
+
         @keyframes shimmer {
             0% { background-position: -200% 0; }
             100% { background-position: 200% 0; }
@@ -299,64 +346,168 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN: NUBE DE CATEGORÍAS (ARTE VARIADO) -->
-    <section class="py-24 px-4 bg-artIndigo overflow-hidden">
-        <div class="max-w-6xl mx-auto">
-            <div data-aos="fade-up" class="text-center mb-16">
-                <span class="text-goldMain font-black tracking-widest uppercase text-sm">Biblioteca Élite</span>
-                <h2 class="font-grotesk text-4xl md:text-5xl font-black mt-4">Un Arsenal Original y Diferente</h2>
-            </div>
-            
-            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-                <div data-aos="zoom-in" data-aos-delay="50" class="px-6 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-sm md:text-base hover:border-goldMain transition-all">Minimalista</div>
-                <div data-aos="zoom-in" data-aos-delay="100" class="px-6 py-2 rounded-full border border-goldMain/40 bg-artCard text-goldMain font-bold text-sm md:text-base hover:scale-105 transition-all">Acuarela</div>
-                <div data-aos="zoom-in" data-aos-delay="150" class="px-6 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-sm md:text-base hover:border-goldMain transition-all">Abstracto Moderno</div>
-                <div data-aos="zoom-in" data-aos-delay="200" class="px-6 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-sm md:text-base hover:border-goldMain transition-all">Nórdico & Boho</div>
-                <div data-aos="zoom-in" data-aos-delay="250" class="px-6 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-sm md:text-base hover:border-goldMain transition-all">Botánico</div>
-                <div data-aos="zoom-in" data-aos-delay="300" class="px-6 py-2 rounded-full border border-goldMain/40 bg-artCard text-goldMain font-bold text-sm md:text-base hover:scale-105 transition-all">Mapas Vintage</div>
-                <div data-aos="zoom-in" data-aos-delay="350" class="px-6 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-sm md:text-base hover:border-goldMain transition-all">Tipografía & Frases</div>
-                <div data-aos="zoom-in" data-aos-delay="400" class="px-6 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-sm md:text-base hover:border-goldMain transition-all">Arquitectura</div>
-                <div data-aos="zoom-in" data-aos-delay="450" class="px-6 py-2 rounded-full border border-goldMain/40 bg-artCard text-goldSoft font-bold text-sm md:text-base hover:scale-105 transition-all">Anime & Gaming</div>
-            </div>
-            <p class="text-center mt-12 text-gray-500 font-medium">Y más de 25 categorías adicionales esperando por ti...</p>
-        </div>
-    </section>
-        </div>
-    </section>
-
-    <!-- SOLUCIÓN + CARRUSEL -->
     <section class="py-28 px-4 bg-art-gradient overflow-hidden">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-7xl mx-auto">
             <div data-aos="zoom-in" class="text-center mb-20">
                 <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold bg-goldMain/10 border border-goldMain/40 text-goldMain mb-6 uppercase tracking-widest tracking-[0.2em] shadow-lg">El Santo Grial del Arte Digital</span>
                 <h2 class="font-grotesk text-5xl md:text-6xl font-black mb-8 leading-tight">Accede al <br class="md:hidden" /> <span class="text-gold-gradient">El megapack Decorativo</span></h2>
                 <p class="text-xl text-gray-400 max-w-3xl mx-auto">Más de 97,500 recursos de arte mural en <strong class="text-white">Ultra Alta Definición</strong>, organizados en más de 25 nichos y <strong class="text-goldMain underline decoration-2 underline-offset-4">LISTOS PARA IMPRIMIR Y DECORAR.</strong></p>
             </div>
 
-            <!-- Carrusel de Arte -->
-            <div data-aos="fade-up" class="relative max-w-4xl mx-auto rounded-[2.5rem] overflow-hidden border border-goldMain/20 bg-artCard shadow-[0_0_80px_rgba(212,175,55,0.1)] p-3">
-                <div id="art-carousel" class="relative aspect-[16/10] md:aspect-[21/9] rounded-[2rem] overflow-hidden bg-black">
-                    <!-- Imágenes -->
-                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1200&auto=format&fit=crop" class="c-slide absolute inset-0 w-full h-full object-cover transition-all duration-1000 opacity-100 z-10" alt="Sala Moderna">
-                    <img src="https://images.unsplash.com/photo-1581092160562-40aa023fd148?q=80&w=1200&auto=format&fit=crop" class="c-slide absolute inset-0 w-full h-full object-cover transition-all duration-1000 opacity-0 translate-x-full" alt="Habitación Nórdica">
-                    <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=1200&auto=format&fit=crop" class="c-slide absolute inset-0 w-full h-full object-cover transition-all duration-1000 opacity-0 translate-x-full" alt="Oficina Elegante">
-                    
-                    <!-- Controles -->
-                    <button onclick="moveCarousel(-1)" class="absolute left-6 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/40 backdrop-blur-md border border-goldMain/30 text-goldMain flex items-center justify-center hover:bg-goldMain hover:text-artIndigo transition-all group">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-active:scale-90"><path d="m15 18-6-6 6-6"/></svg>
-                    </button>
-                    <button onclick="moveCarousel(1)" class="absolute right-6 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/40 backdrop-blur-md border border-goldMain/30 text-goldMain flex items-center justify-center hover:bg-goldMain hover:text-artIndigo transition-all group">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-active:scale-90"><path d="m9 18 6-6-6-6"/></svg>
-                    </button>
+            <!-- Ticker Muro de Arte -->
+            <div class="marquee-container space-y-4">
+                <!-- Fila 1 (Izquierda) -->
+                <div class="marquee-row animate-marquee-left" style="--speed: 80s">
+                    <!-- Set 1 -->
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1581092160562-40aa023fd148?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1515405299444-24a1efee20ae?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <!-- Set 2 (Duplicado para loop infinito) -->
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1581092160562-40aa023fd148?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1515405299444-24a1efee20ae?q=80&w=400" class="w-full h-full object-cover"></div>
+                </div>
 
-                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 px-8 py-3 bg-black/80 backdrop-blur-xl rounded-2xl border border-goldMain/30 text-sm font-black text-goldSoft shadow-2xl tracking-[0.2em] flex items-center gap-3">
-                        <span class="w-3 h-3 rounded-full bg-goldMain animate-pulse"></span> PREVIEW DEL PACK
-                    </div>
+                <!-- Fila 2 (Derecha) -->
+                <div class="marquee-row animate-marquee-right" style="--speed: 100s">
+                    <!-- Set 1 -->
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1544256718-348422ea2969?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1576158113928-4c240eaaf360?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1551029506-0807df4e2031?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1541411194298-581bc1dd55ee?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1533158307587-828f0a76ef46?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <!-- Set 2 -->
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1544256718-348422ea2969?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1576158113928-4c240eaaf360?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1551029506-0807df4e2031?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1541411194298-581bc1dd55ee?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1533158307587-828f0a76ef46?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=400" class="w-full h-full object-cover"></div>
+                </div>
+
+                <!-- Fila 3 (Izquierda) -->
+                <div class="marquee-row animate-marquee-left" style="--speed: 120s">
+                    <!-- Set 1 -->
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1534188753412-3ee2ce95aaed?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1482160549825-59d1b23cb208?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1453723129670-17a7c09c819d?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1579783901586-d88db74b4ee1?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <!-- Set 2 -->
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1534188753412-3ee2ce95aaed?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1482160549825-59d1b23cb208?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1453723129670-17a7c09c819d?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1579783901586-d88db74b4ee1?q=80&w=400" class="w-full h-full object-cover"></div>
+                    <div class="art-card-ticker"><img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=400" class="w-full h-full object-cover"></div>
                 </div>
             </div>
-            <p class="text-center mt-10 text-gray-400 italic">Cada diseño ha sido curado para garantizar una impresión nítida incluso en formatos gigantes.</p>
+            
+            <p class="text-center mt-12 text-gray-400 italic">Un muro infinito de posibilidades para cada habitación de tu casa.</p>
         </div>
     </section>
+    <section class="py-24 px-4 bg-artIndigo overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div data-aos="fade-up" class="text-center mb-16">
+                <span class="text-goldMain font-black tracking-widest uppercase text-sm">Explora el Tesoro</span>
+                <h2 class="font-grotesk text-4xl md:text-5xl font-black mt-4">Una Biblioteca Infinita para dar <br/> <span class="text-gold-gradient">Vida a Cada Rincón</span></h2>
+                <p class="text-gray-400 mt-6 max-w-2xl mx-auto italic">Olvida los diseños genéricos de tienda. Aquí tienes el arsenal más grande de arte mural curado para cada personalidad.</p>
+            </div>
+            
+            <div id="category-cloud" class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-5xl mx-auto">
+                <!-- LISTA COMPLETA DE CATEGORÍAS CON EMOJIS -->
+                <div data-aos="zoom-in" data-aos-delay="20" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🎨 ABSTRACTAS</div>
+                <div data-aos="zoom-in" data-aos-delay="40" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🌌 ESPACIO</div>
+                <div data-aos="zoom-in" data-aos-delay="60" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">👶 INFANTIL</div>
+                <div data-aos="zoom-in" data-aos-delay="80" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🐾 ANIMALES</div>
+                <div data-aos="zoom-in" data-aos-delay="100" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">📚 LITERARIOS</div>
+                <div data-aos="zoom-in" data-aos-delay="120" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🦁 LEONES</div>
+                <div data-aos="zoom-in" data-aos-delay="140" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🎌 ANIMES</div>
+                <div data-aos="zoom-in" data-aos-delay="160" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🎬 CINE & SERIES</div>
+                <div data-aos="zoom-in" data-aos-delay="180" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">☸️ MÁNDALAS</div>
+                <div data-aos="zoom-in" data-aos-delay="200" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🏛️ ARTES MODERNAS</div>
+                <div data-aos="zoom-in" data-aos-delay="220" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🌸 FLORES</div>
+                <div data-aos="zoom-in" data-aos-delay="240" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🏷️ MARCAS</div>
+                <div data-aos="zoom-in" data-aos-delay="260" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🎭 ARTÍSTICAS</div>
+                <div data-aos="zoom-in" data-aos-delay="280" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🌿 FOLLAJE</div>
+                <div data-aos="zoom-in" data-aos-delay="300" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🎼 MÚSICA</div>
+                <div data-aos="zoom-in" data-aos-delay="320" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🎸 BANDS ROCK</div>
+                <div data-aos="zoom-in" data-aos-delay="340" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🏎️ FÓRMULA 1</div>
+                <div data-aos="zoom-in" data-aos-delay="360" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🎄 NAVIDAD</div>
+                <div data-aos="zoom-in" data-aos-delay="380" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🍹 BAR & BEBIDAS</div>
+                <div data-aos="zoom-in" data-aos-delay="400" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">📸 FOTOGRAFÍA</div>
+                <div data-aos="zoom-in" data-aos-delay="420" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">👤 PERSONALIDADES</div>
+                <div data-aos="zoom-in" data-aos-delay="440" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">💈 BARBERO</div>
+                <div data-aos="zoom-in" data-aos-delay="460" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">💬 FRASES</div>
+                <div data-aos="zoom-in" data-aos-delay="480" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🐶 MASCOTAS</div>
+                <div data-aos="zoom-in" data-aos-delay="500" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">☕ CAFÉ & COCINA</div>
+                <div data-aos="zoom-in" data-aos-delay="520" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🌊 FONDO MAR</div>
+                <div data-aos="zoom-in" data-aos-delay="540" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🖼️ PINTURAS FAMOSAS</div>
+                <div data-aos="zoom-in" data-aos-delay="560" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">📬 POSTALES</div>
+                <div data-aos="zoom-in" data-aos-delay="580" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🧸 FUNKOS</div>
+                <div data-aos="zoom-in" data-aos-delay="600" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">💥 POP ART</div>
+                <div data-aos="zoom-in" data-aos-delay="620" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🏖️ CASA PLAYA</div>
+                <div data-aos="zoom-in" data-aos-delay="640" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">⚽ FÚTBOL</div>
+                <div data-aos="zoom-in" data-aos-delay="660" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🗞️ PÓSTERES</div>
+                <div data-aos="zoom-in" data-aos-delay="680" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🌆 PAISAJES</div>
+                <div data-aos="zoom-in" data-aos-delay="700" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🚀 FUTURISTAS</div>
+                <div data-aos="zoom-in" data-aos-delay="720" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🌀 PSICODÉLICAS</div>
+                <div data-aos="zoom-in" data-aos-delay="740" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">💃 GITANOS</div>
+                <div data-aos="zoom-in" data-aos-delay="760" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🎮 VIDEOJUEGOS</div>
+                <div data-aos="zoom-in" data-aos-delay="780" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🙏 RELIGIÓN</div>
+                <div data-aos="zoom-in" data-aos-delay="800" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🤠 COWBOY</div>
+                <div data-aos="zoom-in" data-aos-delay="820" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">📐 GEOMÉTRICAS</div>
+                <div data-aos="zoom-in" data-aos-delay="840" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">📟 RETRO</div>
+                <div data-aos="zoom-in" data-aos-delay="860" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">✊ CULTURA AFRO</div>
+                <div data-aos="zoom-in" data-aos-delay="880" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🦸‍♂️ HÉROES</div>
+                <div data-aos="zoom-in" data-aos-delay="900" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🐄 GRANJA</div>
+                <div data-aos="zoom-in" data-aos-delay="920" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🖍️ DIBUJOS</div>
+                <div data-aos="zoom-in" data-aos-delay="940" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🛹 HIPSTER</div>
+                <div data-aos="zoom-in" data-aos-delay="960" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">📺 SERIES 80/90</div>
+                <div data-aos="zoom-in" data-aos-delay="980" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🏰 DISNEY</div>
+                <div data-aos="zoom-in" data-aos-delay="1000" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🖋️ ILUSTRACIONES</div>
+                <div data-aos="zoom-in" data-aos-delay="1020" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🍀 SUERTE</div>
+                <div data-aos="zoom-in" data-aos-delay="1040" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🧩 DOODLE ART</div>
+                <div data-aos="zoom-in" data-aos-delay="1060" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🎋 VIBE JUNGLE</div>
+                <div data-aos="zoom-in" data-aos-delay="1080" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">⚙️ STEAMPUNK</div>
+                <div data-aos="zoom-in" data-aos-delay="1100" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🐲 DRAGONES</div>
+                <div data-aos="zoom-in" data-aos-delay="1120" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🚗 VEHÍCULOS</div>
+                <div data-aos="zoom-in" data-aos-delay="1140" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🔥 TENDENCIAS</div>
+                <div data-aos="zoom-in" data-aos-delay="1160" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">💡 EMPRENDE</div>
+                <div data-aos="zoom-in" data-aos-delay="1180" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">✈️ VIAJES</div>
+                <div data-aos="zoom-in" data-aos-delay="1200" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">👺 TERROR</div>
+                <div data-aos="zoom-in" data-aos-delay="1220" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🔮 ESOTÉRICAS</div>
+                <div data-aos="zoom-in" data-aos-delay="1240" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🪓 VIKINGOS</div>
+                <div data-aos="zoom-in" data-aos-delay="1260" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🧩 MOSAICOS</div>
+                <div data-aos="zoom-in" data-aos-delay="1280" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🍂 ESTACIONES</div>
+                <div data-aos="zoom-in" data-aos-delay="1300" class="tag-cloud-item px-5 py-2 rounded-full border border-white/10 bg-artCard text-white font-medium text-xs md:text-sm hover:border-goldMain hover:text-goldSoft hover:scale-105 transition-all cursor-default">🕰️ VINTAGE</div>
+            </div>
+            <p class="text-center mt-12 text-gray-500 font-medium">Y más tesoros ocultos esperando ser descubiertos...</p>
+        </div>
+    </section>
+        </div>
+    </section>
+
 
     <!-- CARACTERÍSTICAS TÉCNICAS (CON ENFOQUE ARTÍSTICO) -->
     <section class="py-24 px-4 bg-artIndigo relative overflow-hidden">
@@ -436,36 +587,36 @@
                 <!-- Testimonio 1 -->
                 <div data-aos="fade-up" class="bg-artCard p-8 rounded-[2rem] border border-white/10 hover:border-goldMain/40 transition-colors relative">
                     <div class="flex gap-1 mb-4 text-goldMain">★★★★★</div>
-                    <p class="text-gray-300 mb-6 leading-relaxed italic">"Increíble la calidad. Había comprado otros packs que se veían bien en pantalla pero al imprimir en 60x80 se veían horribles. Este pack es otro nivel."</p>
+                    <p class="text-gray-300 mb-6 leading-relaxed italic">"Estaba harta de ver los mismos 3 cuadros de IKEA en las casas de todas mis amigas. Quería algo con alma. Con este pack, logré decorar mi sala con un estilo nórdico que parece sacado de una revista de lujo. ¡Y me salió baratísimo!"</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-goldMain to-artIndigo flex items-center justify-center font-bold text-artIndigo">S.M</div>
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-goldMain to-artIndigo flex items-center justify-center font-bold text-artIndigo">L.P</div>
                         <div>
-                            <p class="text-white font-bold text-sm">Sergio Méndez</p>
-                            <p class="text-xs text-softGray">🇲🇽 México | Deco Store</p>
+                            <p class="text-white font-bold text-sm">Lucía Parra</p>
+                            <p class="text-xs text-softGray">🇪🇸 España | Decoración Hogar</p>
                         </div>
                     </div>
                 </div>
                 <!-- Testimonio 2 -->
                 <div data-aos="fade-up" data-aos-delay="100" class="bg-artCard p-8 rounded-[2rem] border border-white/10 hover:border-goldMain/40 transition-colors relative">
                     <div class="flex gap-1 mb-4 text-goldMain">★★★★★</div>
-                    <p class="text-gray-300 mb-6 leading-relaxed italic">"Como diseñadora, esto me ahorra meses de trabajo. Lo uso para mis clientes corporativos y los resultados son impecables. Los diseños nórdicos son brutales."</p>
+                    <p class="text-gray-300 mb-6 leading-relaxed italic">"Busqué por semanas un cuadro que encajara con mi personalidad y solo encontraba cosas genéricas y carísimas. Aquí encontré el diseño perfecto entre los +97k recursos. Mis paredes por fin cuentan mi historia."</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-goldSoft to-goldMain flex items-center justify-center font-bold text-artIndigo">A.V</div>
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-goldSoft to-goldMain flex items-center justify-center font-bold text-artIndigo">M.R</div>
                         <div>
-                            <p class="text-white font-bold text-sm">Adriana Vega</p>
-                            <p class="text-xs text-softGray">🇨🇴 Colombia | Interiorismo</p>
+                            <p class="text-white font-bold text-sm">Miguel Rius</p>
+                            <p class="text-xs text-softGray">🇲🇽 México | Entusiasta del Arte</p>
                         </div>
                     </div>
                 </div>
                 <!-- Testimonio 3 -->
                 <div data-aos="fade-up" data-aos-delay="200" class="bg-artCard p-8 rounded-[2rem] border border-white/10 hover:border-goldMain/40 transition-colors relative">
                     <div class="flex gap-1 mb-4 text-goldMain">★★★★★</div>
-                    <p class="text-gray-300 mb-6 leading-relaxed italic">"Simplemente espectacular. La organización facilita encontrar lo que el cliente pida. La inversión se recupera con el primer pedido de cuadros del pack."</p>
+                    <p class="text-gray-300 mb-6 leading-relaxed italic">"Soy súper perfeccionista con la resolución. Me sorprendió que estos archivos realmente aguantan formatos grandes sin pixelarse. Mi sala parece ahora una galería de arte moderno."</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amberAccent to-goldMain flex items-center justify-center font-bold text-artIndigo">J.C</div>
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amberAccent to-goldMain flex items-center justify-center font-bold text-artIndigo">C.T</div>
                         <div>
-                            <p class="text-white font-bold text-sm">Jorge C.</p>
-                            <p class="text-xs text-softGray">🇪🇸 España | Taller de Enmarcado</p>
+                            <p class="text-white font-bold text-sm">Carolina T.</p>
+                            <p class="text-xs text-softGray">🇦🇷 Argentina | Home Gallery</p>
                         </div>
                     </div>
                 </div>
